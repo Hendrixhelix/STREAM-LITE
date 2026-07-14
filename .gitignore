@@ -34,3 +34,6 @@ backend/dist-ssr
 .env
 .env.local
 .env.*.local
+
+# Uploaded media (local disk storage)
+backend/server/uploads/

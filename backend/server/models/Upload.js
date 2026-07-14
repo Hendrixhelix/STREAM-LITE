@@ -2,7 +2,7 @@ import mongoose from "mongoose";
 
 const UploadSchema = new mongoose.Schema(
   {
-    key: { type: String, required: true, unique: true }, // R2 object key
+    key: { type: String, required: true, unique: true }, // local filename
     originalName: { type: String, required: true },
     contentType: { type: String, required: true },
     size: { type: Number, required: true },
