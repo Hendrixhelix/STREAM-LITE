@@ -24,11 +24,7 @@ ensureUploadDir();
 function isMp3(file) {
   const name = String(file.originalname || "").toLowerCase();
   const mime = String(file.mimetype || "").toLowerCase();
-  return (
-    name.endsWith(".mp3") ||
-    mime === "audio/mpeg" ||
-    mime === "audio/mp3"
-  );
+  return name.endsWith(".mp3") || mime === "audio/mpeg" || mime === "audio/mp3";
 }
 
 const upload = multer({
@@ -124,9 +120,7 @@ app.get("/api/tracks/:id/stream", async (req, res) => {
 app.use((err, req, res, next) => {
   if (err instanceof multer.MulterError) {
     if (err.code === "LIMIT_FILE_SIZE") {
-      return res
-        .status(413)
-        .json({ error: "File too large (max 50MB)" });
+      return res.status(413).json({ error: "File too large (max 50MB)" });
     }
     return res.status(400).json({ error: err.message });
   }
